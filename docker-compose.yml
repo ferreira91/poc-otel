@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  go-otel:
+    build: ./go
+    container_name: go-otel
+    ports:
+      - "1323:1323"
+  kotlin-otel:
+    build: ./kotlin
+    container_name: kotlin-otel
+    ports:
+    - "8080:8080"
