@@ -4,10 +4,42 @@ services:
   go-otel:
     build: ./go
     container_name: go-otel
+    environment:
+      JAEGER_ENDPOINT_EXPORTER: "jaeger:"
     ports:
       - "1323:1323"
+    depends_on:
+      - jaeger
   kotlin-otel:
     build: ./kotlin
     container_name: kotlin-otel
     ports:
     - "8080:8080"
+    depends_on:
+      - jaeger
+  jaeger:
+    image: jaegertracing/all-in-one:1.42
+    container_name: jaeger
+    environment:
+      COLLECTOR_ZIPKIN_HOST_PORT: "9411"
+      COLLECTOR_OTLP_ENABLED: "true"
+    ports:
+    - "6831:6831/udp"
+    - "6832:6832/udp"
+    - "5778:5778"
+    - "16686:16686"
+    - "4317:4317"
+    - "4318:4318"
+    - "14250:14250"
+    - "14268:14268"
+    - "14269:14269"
+    - "9411:9411"
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+    - "9090:9090"
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+    - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
