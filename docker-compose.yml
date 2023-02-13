@@ -5,7 +5,8 @@ services:
     build: ./go
     container_name: go-otel
     environment:
-      JAEGER_ENDPOINT_EXPORTER: "jaeger:"
+      JAEGER_ENDPOINT_EXPORTER: "http://jaeger:14268/api/traces"
+      CLIENT_ENDPOINT: "http://kotlin-otel:8080/otel"
     ports:
       - "1323:1323"
     depends_on:
