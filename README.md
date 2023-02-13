@@ -7,8 +7,6 @@ This repository contains a demonstration application that collects and stores te
 * [Docker Compose](https://docs.docker.com/compose/)
 * [Make](https://www.gnu.org/software/make/)
 
-Este é um projeto de prova de conceito (POC) para demonstração de uma solução de open telemetry. A aplicação é capaz de coletar e enviar métricas, rastros e logs para um sistema de monitoramento.
-
 ### Setup
 Clone the repository:
 ```$ git clone https://github.com/ferreira91/poc-otel.git```
