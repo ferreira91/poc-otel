@@ -23,9 +23,9 @@ Run:
 
 ### Show results
 Jaeger:
-```$ http://localhost:16686```
+```$ http://localhost:16686```  
 Prometheus:
-```$ http://localhost:9090```
+```$ http://localhost:9090```  
 Grafana:
 ```$ http://localhost:3000```
 
