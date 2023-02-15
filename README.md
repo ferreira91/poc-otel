@@ -17,7 +17,7 @@ Run:
 
 ### Usage
 Run:
-```$ curl http:\\localhost:1323\test```
+```$ curl http://localhost:1323/test```
 
 ### Show results
 Jaeger:
